@@ -1,9 +1,10 @@
-FROM golang:latest AS build
+# Explicitly use Go version when root access to Docker unavailable.
+FROM golang:1.23 AS build
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the Go module files
+# Copy the Go module files. Make sure go.sum exists. If not, or if there's an error, run `go mod tidy` locally.
 COPY go.mod go.sum ./
 RUN go mod download
 
