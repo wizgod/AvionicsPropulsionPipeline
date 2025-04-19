@@ -1,4 +1,4 @@
-# Explicitly use Go version when root access to Docker unavailable.
+# Explicitly use Go version when root access to Docker is unavailable.
 FROM golang:1.23 AS build
 
 # Set the working directory in the container
